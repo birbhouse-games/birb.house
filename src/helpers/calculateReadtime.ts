@@ -1,16 +1,13 @@
 // Module imports
-import {
-	Entry,
-	type EntryFieldTypes,
-	type ResolvedField,
-} from 'contentful'
+import { type Entry } from 'contentful'
+import { type Document } from '@contentful/rich-text-types'
 
 
 
 
 
 // Local imports
-import { parseContentfulRichTextAsString } from '@/helpers/parseContentfulRichTextAsString'
+import { parseContentfulRichText } from '@/helpers/parseContentfulRichText'
 import { TypePageBlogPostSkeleton } from '@/typedefs/contentful'
 
 
@@ -24,7 +21,7 @@ import { TypePageBlogPostSkeleton } from '@/typedefs/contentful'
  * @returns The estmated reading time of the string in milliseconds.
  */
 export function calculateReadtime(input: Entry<TypePageBlogPostSkeleton>['fields']['content']) {
-	const wordCount = parseContentfulRichTextAsString(input)
+	const wordCount = (parseContentfulRichText(input as Document, true)! as string)
 		.replace(/\s+/gu, ' ')
 		.split(' ')
 		.length
