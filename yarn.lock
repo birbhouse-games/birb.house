@@ -52,9 +52,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:^1.19.3":
-  version: 1.19.3
-  resolution: "@dotenvx/dotenvx@npm:1.19.3"
+"@dotenvx/dotenvx@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@dotenvx/dotenvx@npm:1.20.0"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^16.4.5"
@@ -68,7 +68,7 @@ __metadata:
   bin:
     dotenvx: src/cli/dotenvx.js
     git-dotenvx: src/cli/dotenvx.js
-  checksum: 10c0/b675de63b2da3ed4457bf4e716be85601eb8c5af9738a45645dab02764b0b629e210d417acd53af6e2477047728a807988d1f8a912a8af6f73fa2865671bedc1
+  checksum: 10c0/e9c6833748598ea03bea30ce1a67366335f9ab0f7b272c635bae0fe86a1e9f5c7f3df82e9957805fc4bdbd8571b4986dbb2b114affd5095ec533c2dc69e056ae
   languageName: node
   linkType: hard
 
@@ -839,21 +839,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/auth-js@npm:2.65.0":
-  version: 2.65.0
-  resolution: "@supabase/auth-js@npm:2.65.0"
+"@supabase/auth-js@npm:2.65.1":
+  version: 2.65.1
+  resolution: "@supabase/auth-js@npm:2.65.1"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
-  checksum: 10c0/eeb0c8e0e370be6505cb2d5cfccd3e88f8093868fdb55812293341b51c24d39bba4f8131b2e6785b8732e435ba326b9979c335d56b5bf159003654b754e1e2d2
+  checksum: 10c0/af9708fb959d77e0dd50543163b42c3441b27a3024899fd96c7c55ceda755b338247a82d17947abc37cbc918f5d83ea28df4d00cbe0cd95ebe76a458444fdd1d
   languageName: node
   linkType: hard
 
-"@supabase/functions-js@npm:2.4.1":
-  version: 2.4.1
-  resolution: "@supabase/functions-js@npm:2.4.1"
+"@supabase/functions-js@npm:2.4.3":
+  version: 2.4.3
+  resolution: "@supabase/functions-js@npm:2.4.3"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
-  checksum: 10c0/18c672aa9fc9f04ae662e596463d1bc7a4f01780533dbaecef85576caa56e4a3c6a90a727d64afc56a25f028bdc91ee89072b7c86d2492a93ab9a4ce00a7626b
+  checksum: 10c0/b8560d4506e70875c2259751a8e578a9541631b9f16607dd1c4f9d5827178b3ddacd22f42549301a293aa4ed10bc4c9dc8273ea5d100b762a54d925dcff933ef
   languageName: node
   linkType: hard
 
@@ -866,24 +866,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/postgrest-js@npm:1.16.1":
-  version: 1.16.1
-  resolution: "@supabase/postgrest-js@npm:1.16.1"
+"@supabase/postgrest-js@npm:1.16.2":
+  version: 1.16.2
+  resolution: "@supabase/postgrest-js@npm:1.16.2"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
-  checksum: 10c0/a5fbbb53359cdc83633c1ee1360d803299f22703e7130a92a40d579931cb79408bfe4beceaf35e87ffa39195633db9ba3561bd2b94af0ac219d4c5807f8bc92f
+  checksum: 10c0/9516d8fd6d820af2ef772321e8cfeeb51eb308429f8d6733248a36b906a16831a60cfe8b78b7bcb836b5b3bb8c54c13fbe79d4ad35448b9dffca56b86613567f
   languageName: node
   linkType: hard
 
-"@supabase/realtime-js@npm:2.10.2":
-  version: 2.10.2
-  resolution: "@supabase/realtime-js@npm:2.10.2"
+"@supabase/realtime-js@npm:2.10.7":
+  version: 2.10.7
+  resolution: "@supabase/realtime-js@npm:2.10.7"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
     "@types/phoenix": "npm:^1.5.4"
     "@types/ws": "npm:^8.5.10"
     ws: "npm:^8.14.2"
-  checksum: 10c0/d33bb7c124c5014ad3f308bb9837f74a33e408976595bda2a8955e2685e89654259738cb2409c31a3aef3892d22d3986c2880437083a87f1a47e828dd2f27eb9
+  checksum: 10c0/c626cfb0e5f6bcec23bff35f44b597efe11b8489063e52e43053c9bfeed5dd947f78ab063d7065ed3ced6bce803a231a4f398de4e933c9a0e3093e8c804dbaad
   languageName: node
   linkType: hard
 
@@ -898,26 +898,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@supabase/storage-js@npm:2.7.0":
-  version: 2.7.0
-  resolution: "@supabase/storage-js@npm:2.7.0"
+"@supabase/storage-js@npm:2.7.1":
+  version: 2.7.1
+  resolution: "@supabase/storage-js@npm:2.7.1"
   dependencies:
     "@supabase/node-fetch": "npm:^2.6.14"
-  checksum: 10c0/ada0261ec18ee8fdf9ace8c3002a06f8d97580b8fb428e6dee07dc7df55fb69ddd6e0c92e25d0cda4cddf8cb37a0473d0aa3df9fa0048e7563251ceebad92ab3
+  checksum: 10c0/bcaa8bd275c59b8c5f6f00b9590ef54f008b63aacdcd8bf1747cb73f61ea7bd321bb816314ae0cf1bb318cd4d398515f9a135bde84ef960c19ac3c11e38d00fd
   languageName: node
   linkType: hard
 
-"@supabase/supabase-js@npm:^2.45.4":
-  version: 2.45.4
-  resolution: "@supabase/supabase-js@npm:2.45.4"
+"@supabase/supabase-js@npm:^2.45.5":
+  version: 2.45.5
+  resolution: "@supabase/supabase-js@npm:2.45.5"
   dependencies:
-    "@supabase/auth-js": "npm:2.65.0"
-    "@supabase/functions-js": "npm:2.4.1"
+    "@supabase/auth-js": "npm:2.65.1"
+    "@supabase/functions-js": "npm:2.4.3"
     "@supabase/node-fetch": "npm:2.6.15"
-    "@supabase/postgrest-js": "npm:1.16.1"
-    "@supabase/realtime-js": "npm:2.10.2"
-    "@supabase/storage-js": "npm:2.7.0"
-  checksum: 10c0/a25bf912f51ca1bde358ffc62bcb90cb653f1df2ca91533c63653b7484e91f5862d514bb659c2f568ee18a3fc0c743a2e279a56126b221da77edff47a1dd6176
+    "@supabase/postgrest-js": "npm:1.16.2"
+    "@supabase/realtime-js": "npm:2.10.7"
+    "@supabase/storage-js": "npm:2.7.1"
+  checksum: 10c0/cc1c5ee4e1e892dd26d3866ac08d311955ba8f554ce4e0cf231f058007445f587c5c9bde4685792456d6b69a973d35fcec0b1b3fb47142f227dcd75543b98b32
   languageName: node
   linkType: hard
 
@@ -1135,12 +1135,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.7.6":
-  version: 22.7.6
-  resolution: "@types/node@npm:22.7.6"
+"@types/node@npm:^22.7.7":
+  version: 22.7.7
+  resolution: "@types/node@npm:22.7.7"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10c0/d4406a63afce981c363fb1d1954aaf1759ad2d487c0833ebf667565ea4e45ff217d6fab4b5343badbdeccdf9d2e4a0841d633e0c929ceabcb33c288663dd0c73
+  checksum: 10c0/07268a1e990ad9d9b1865092881317ea679a46eb6706d83a8874eec75fdddae6cfd6452e4e68b651561183e2a8f8548276f3155744bc402c2545978c19b70d65
   languageName: node
   linkType: hard
 
@@ -1984,7 +1984,7 @@ __metadata:
   dependencies:
     "@contentful/rich-text-react-renderer": "npm:^15.22.11"
     "@contentful/rich-text-types": "npm:^16.8.5"
-    "@dotenvx/dotenvx": "npm:^1.19.3"
+    "@dotenvx/dotenvx": "npm:^1.20.0"
     "@fortawesome/fontawesome-svg-core": "npm:^6.6.0"
     "@fortawesome/free-brands-svg-icons": "npm:^6.6.0"
     "@fortawesome/free-regular-svg-icons": "npm:^6.6.0"
@@ -1993,8 +1993,8 @@ __metadata:
     "@next/third-parties": "npm:^14.2.15"
     "@plaiceholder/next": "npm:^3.0.0"
     "@supabase/ssr": "npm:^0.5.1"
-    "@supabase/supabase-js": "npm:^2.45.4"
-    "@types/node": "npm:^22.7.6"
+    "@supabase/supabase-js": "npm:^2.45.5"
+    "@types/node": "npm:^22.7.7"
     "@types/react": "npm:^18.3.11"
     "@types/react-dom": "npm:^18.3.1"
     "@types/uuid": "npm:^10.0.0"
@@ -2011,14 +2011,14 @@ __metadata:
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     recharts: "npm:^2.13.0"
-    sass: "npm:^1.80.1"
+    sass: "npm:^1.80.3"
     schema-dts: "npm:^1.1.2"
     sharp: "npm:^0.33.5"
     statery: "npm:^0.7.1"
     steam-signin: "npm:^1.0.3"
     typescript: "npm:^5.6.3"
     uuid: "npm:^10.0.0"
-    vercel: "npm:^37.9.0"
+    vercel: "npm:^37.11.0"
   languageName: unknown
   linkType: soft
 
@@ -6095,9 +6095,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.80.1":
-  version: 1.80.1
-  resolution: "sass@npm:1.80.1"
+"sass@npm:^1.80.3":
+  version: 1.80.3
+  resolution: "sass@npm:1.80.3"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -6105,7 +6105,7 @@ __metadata:
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 10c0/91ec2b8bcba4c3c68c047fdcbe04cb82646b5cc6446e04d9134ff3c642d9895363de5cbf88869f0a6aa81bcd2de9b8ccba7df7ff35d33a07a18754014ee7a31a
+  checksum: 10c0/fa08043fc36b854717b6eaf6247ee11341d0aff5e17a645965071866bd677930c9c9467d82ed5a4a666d7897a82be8a61427cd81b808e6b9e2d3b32cf278bebd
   languageName: node
   linkType: hard
 
@@ -7048,9 +7048,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vercel@npm:^37.9.0":
-  version: 37.9.0
-  resolution: "vercel@npm:37.9.0"
+"vercel@npm:^37.11.0":
+  version: 37.11.0
+  resolution: "vercel@npm:37.11.0"
   dependencies:
     "@vercel/build-utils": "npm:8.4.11"
     "@vercel/fun": "npm:1.1.0"
@@ -7067,7 +7067,7 @@ __metadata:
   bin:
     vc: dist/index.js
     vercel: dist/index.js
-  checksum: 10c0/d474cbe20ea3a53b87b8b459de6bb284fcc52d9f5eaedd7259f89f57b0117332256fb264eee694f22731458d69d709a9f6539a525652e92f25920521aefe0998
+  checksum: 10c0/6aa977993c5e69af79dc7482926fc91b841ee671689049478bf523aa7820c7cb3eba18bc574f10406cf084152e85763dc1ae7207361ab89c35b1c4c3b4753032
   languageName: node
   linkType: hard
 
