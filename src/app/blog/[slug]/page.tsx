@@ -1,6 +1,11 @@
 // Module imports
-import { type Metadata } from 'next'
+import {
+	type Metadata,
+	type ResolvingMetadata,
+} from 'next'
 import { strict as assert } from 'assert'
+
+
 
 
 
@@ -14,6 +19,7 @@ import { ContentfulRichImage } from '@/components/ContentfulRichImage/Contentful
 import { Fits } from '@/typedefs/Fits'
 import { Heading } from '@/components/Heading/Heading'
 import { Hero } from '@/components/Hero/Hero'
+import { type OGImageDescriptor } from '@/typedefs/OGImageDescriptor'
 import { PageSection } from '@/components/PageSection/PageSection'
 import { parseContentfulRichText } from '@/helpers/parseContentfulRichText'
 import { Positions } from '@/typedefs/Positions'
@@ -118,7 +124,48 @@ export default async function BlogPage(props: Props) {
 	)
 }
 
-export const metadata: Metadata = {
-	description: 'Read up on our exploits!',
-	title: 'Blog',
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const { slug } = props.params
+
+	const article = await Contentful.getArticle(slug)
+
+	assert(article)
+
+	const metadata: Metadata = {
+		alternates: {},
+		description: article.fields.seoFields?.fields.pageDescription ?? article.fields.shortDescription,
+    openGraph: {},
+		robots: {
+			follow: !article.fields.seoFields?.fields.nofollow,
+			index: !article.fields.seoFields?.fields.noindex,
+		},
+    title: article.fields.seoFields?.fields.pageTitle ?? article.fields.title,
+  }
+
+	if (article.fields.author) {
+		metadata.authors = { name: article.fields.author.fields.name }
+	}
+
+	if (article.fields.seoFields?.fields.canonicalUrl) {
+		metadata.alternates!.canonical = article.fields.seoFields.fields.canonicalUrl
+	}
+
+	const ogImages = article.fields.seoFields?.fields.shareImages?.reduce((accumulator, shareImage) => {
+		if (shareImage?.fields.file) {
+			accumulator.push({
+				alt: shareImage.fields.description,
+				height: shareImage.fields.file.details.image?.height,
+				url: shareImage.fields.file.url,
+				width: shareImage.fields.file.details.image?.width,
+			})
+		}
+
+		return accumulator
+	}, [] as OGImageDescriptor[])
+
+	if (ogImages) {
+		metadata.openGraph!.images = ogImages
+	}
+
+  return metadata
 }
