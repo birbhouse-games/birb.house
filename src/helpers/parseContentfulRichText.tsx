@@ -48,24 +48,10 @@ const OPTIONS: Options = {
 					fill
 					src={`https:${node.data.target.fields.file.url}`}
 					title={node.data.target.fields.title} />
-
-				{/* objectFit = 'cover', */}
-				{/* objectPosition, */}
-				{/* placeholder = 'empty', */}
-				{/* sizes, */}
 			</figure>
 		),
 		[BLOCKS.EMBEDDED_ENTRY]: (node: Node) => {
 			switch (node.data.target.sys.contentType.sys.id) {
-				// case 'componentCodeBlock':
-				// 	return (
-				// 		<Code
-				// 			key={nodeIndex}
-				// 			language={node.data.target.fields.language}>
-				// 			{node.data.target.fields.code}
-				// 		</Code>
-				// 	)
-
 				case 'componentRichImage':
 					return (
 						<div style={RICH_IMAGE_STYLES}>
