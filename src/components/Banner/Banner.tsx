@@ -8,8 +8,8 @@ import {
 import {
 	faDice,
 	faHouse,
-	faInfoCircle,
 	faPenNib,
+	faSmile,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image.js'
@@ -75,7 +75,7 @@ export function Banner() {
 					href={'/about'}>
 					<FontAwesomeIcon
 						fixedWidth
-						icon={faInfoCircle}
+						icon={faSmile}
 						size={'xs'} />
 					<span>{'About'}</span>
 				</Link>
