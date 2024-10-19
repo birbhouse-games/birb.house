@@ -1,6 +1,8 @@
 .container {
 	--layout-padding: 12px;
 
+	container-name: layout;
+	container-type: size;
 	display: grid;
 	grid-template-areas: 'banner content';
 	grid-template-columns: auto 1fr;
@@ -11,6 +13,10 @@
 	overflow: hidden;
 
 	.content {
+		// background-image: url('/image/kingfisher-on-tree-trunk.bg.png');
+		background-size: cover;
+		container-name: main-content;
+		container-type: size;
 		grid-area: content;
 		overflow: auto;
 	}

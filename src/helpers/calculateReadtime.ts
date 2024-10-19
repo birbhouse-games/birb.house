@@ -10,7 +10,7 @@ import {
 
 
 // Local imports
-import { parseContentfulNodeFragmentAsString } from '@/helpers/parseContentfulNodeFragmentAsString'
+import { parseContentfulRichTextAsString } from '@/helpers/parseContentfulRichTextAsString'
 import { TypePageBlogPostSkeleton } from '@/typedefs/contentful'
 
 
@@ -24,7 +24,7 @@ import { TypePageBlogPostSkeleton } from '@/typedefs/contentful'
  * @returns The estmated reading time of the string in milliseconds.
  */
 export function calculateReadtime(input: Entry<TypePageBlogPostSkeleton>['fields']['content']) {
-	const wordCount = parseContentfulNodeFragmentAsString(input)
+	const wordCount = parseContentfulRichTextAsString(input)
 		.replace(/\s+/gu, ' ')
 		.split(' ')
 		.length

@@ -1,17 +1,7 @@
-'use client'
-
 // Module imports
-import {
-	type CSSProperties,
-	useCallback,
-	useMemo,
-} from 'react'
 import classnames from 'classnames'
-import Image from 'next/image.js'
-import { type ImageFit } from '@/typedefs/contentful-extended/ImageFit'
-import { type ImageFocusArea } from '@/typedefs/contentful-extended/ImageFocusArea'
-import { type ImageLoader } from 'next/dist/client/image-component'
-import { type PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
+import { type GetPlaiceholderReturn } from 'plaiceholder'
+import Image from 'next/image'
 import { type Property } from 'csstype'
 
 
@@ -19,6 +9,9 @@ import { type Property } from 'csstype'
 
 
 // Local imports
+import { type ImageFit } from '@/typedefs/contentful-extended/ImageFit'
+import { type ImageFocusArea } from '@/typedefs/contentful-extended/ImageFocusArea'
+
 import styles from './ContentfulImage.module.scss'
 
 
@@ -28,7 +21,6 @@ import styles from './ContentfulImage.module.scss'
 // Types
 type Props = {
 	alt?: string,
-	blurDataURL?: string,
 	className?: string,
 	fill?: boolean,
 	fit?: ImageFit,
@@ -37,7 +29,7 @@ type Props = {
 	isPriority?: boolean,
 	objectFit?: Property.ObjectFit,
 	objectPosition?: Property.ObjectPosition<string>,
-	placeholder?: PlaceholderValue,
+	quality?: number,
 	sizes?: string,
 	src: string,
 	title?: string,
@@ -48,15 +40,10 @@ type Props = {
 
 
 
-/**
- * Renders an image from Contentful.
- *
- * @component
- */
-export function ContentfulImage(props: Props) {
+/** Renders an image from Contentful. */
+export async function ContentfulImage(props: Props) {
 	const {
 		alt = '',
-		blurDataURL = '',
 		className = '',
 		fill = false,
 		fit,
@@ -65,65 +52,49 @@ export function ContentfulImage(props: Props) {
 		isPriority = false,
 		objectFit = 'cover',
 		objectPosition,
-		placeholder = 'empty',
+		quality = 75,
 		sizes,
 		src,
 		title = '',
 		width,
 	} = props
 
-	const loader: ImageLoader = useCallback(loaderProps => {
-		const {
-			quality,
-			width: loaderWidth,
-		} = loaderProps
+	const baseURL = new URL(`https:${src.replace(/^https:/, '')}`)
 
-		const url = new URL(`${src}`)
+	let plaiceholderData: GetPlaiceholderReturn | null = null
 
-		url.searchParams.set('fm', 'webp')
-		url.searchParams.set('w', loaderWidth.toString())
-		url.searchParams.set('q', (quality || 75).toString())
+	try {
+		const plaiceholderDataResponse = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/plaiceholder?src=` + baseURL.toString())
 
-		if (fit) {
-			url.searchParams.set('fit', fit)
+		if (plaiceholderDataResponse.status === 200) {
+			plaiceholderData = await plaiceholderDataResponse.json()
 		}
+	} catch (err) {
+		console.log('plaiceholder Err', err)
+	}
 
-		if (focusArea) {
-			url.searchParams.set('f', focusArea.toLowerCase().replace(/\s/u, '_'))
-		}
+	const sourceURL = new URL(baseURL)
+	sourceURL.searchParams.set('fm', 'webp')
+	sourceURL.searchParams.set('q', (quality || 75).toString())
 
-		return url.href
-	}, [
-		fit,
-		focusArea,
-		src,
-	])
+	if (width) {
+		sourceURL.searchParams.set('w', width.toString())
+	}
 
-	const compiledImageStyles: CSSProperties = useMemo(() => ({
-		aspectRatio: `${width} / ${height}`,
-		height: '100%',
-		objectFit: objectFit,
-		objectPosition: objectPosition,
-		width: '100%',
-	}), [
-		height,
-		objectFit,
-		objectPosition,
-		width,
-	])
+	if (fit) {
+		sourceURL.searchParams.set('fit', fit)
+	}
 
-	const compiledWrapperStyles = useMemo(() => {
-		const result = {}
+	if (focusArea) {
+		sourceURL.searchParams.set('f', focusArea.toLowerCase().replace(/\s/u, '_'))
+	}
 
-		if (width && height) {
-			result['--aspect-ratio'] = `${width} / ${height}`
-		}
-
-		return result
-	}, [
-		height,
-		width,
-	])
+	const compiledWrapperStyles = {
+		'--image-height': height,
+		'--image-width': width,
+		'--object-fit': objectFit,
+		'--object-position': objectPosition,
+	}
 
 	const compiledClassName = classnames(styles['container'], className)
 
@@ -133,17 +104,17 @@ export function ContentfulImage(props: Props) {
 			style={compiledWrapperStyles}>
 			<Image
 				alt={alt}
-				blurDataURL={blurDataURL}
 				fill={fill}
 				height={!fill ? height : undefined}
-				loader={loader}
-				placeholder={placeholder}
 				priority={isPriority}
 				sizes={sizes}
-				src={src}
-				style={compiledImageStyles}
+				src={sourceURL.toString()}
 				title={title}
-				width={!fill ? width : undefined} />
+				width={!fill ? width : undefined}
+				{...plaiceholderData && {
+					placeholder: 'blur',
+					blurDataURL: plaiceholderData.base64,
+				}} />
 		</div>
 	)
 }

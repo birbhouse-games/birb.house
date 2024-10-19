@@ -7,12 +7,12 @@ import { type Metadata } from 'next'
 
 
 // Local imports
-import styles from './page.module.scss'
-
 import { Content } from '@/components/Content/Content'
 import { Link } from '@/components/Link/Link'
 import { Heading } from '@/components/Heading/Heading'
 import { PageSection } from '@/components/PageSection/PageSection'
+
+import styles from './page.module.scss'
 
 
 
@@ -22,13 +22,6 @@ export default function AboutPage() {
 	return (
 		<>
 			<PageSection className={styles['section']}>
-				<div className={styles['background-image']}>
-					<Image
-						alt={''}
-						fill
-						src={'/image/kingfisher-on-tree-trunk.bg.png'} />
-				</div>
-
 				<div className={styles['float-image']}>
 					<Image
 						alt={''}

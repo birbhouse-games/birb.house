@@ -1,0 +1,38 @@
+.container {
+	border-radius: 5rem;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+
+	article {
+		width: 100%;
+	}
+
+	.article {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: auto;
+	}
+
+	.article-container {
+		padding-top: 20rem;
+	}
+
+	.heading,
+	p {
+		max-width: var(--max-width);
+
+		> span {
+			background-color: hsla(var(--palette-pure-black-hsl), 0.8);
+			color: white;
+			display: inline;
+			line-height: 1.3;
+		}
+	}
+
+	p {
+		line-height: 1.4;
+	}
+}

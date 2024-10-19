@@ -7,12 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 // Local imports
-import styles from './page.module.scss'
-
 import { Button } from '@/components/Button/Button'
 import { Heading } from '@/components/Heading/Heading'
 import { Hero } from '@/components/Hero/Hero'
 
+import styles from './page.module.scss'
 
 
 
@@ -43,7 +42,8 @@ export default function HomePage() {
 			backgroundPositionY={'bottom'}
 			className={styles['hero']}
 			contentPositionX={'left'}
-			contentPositionY={'center'}>
+			contentPositionY={'center'}
+			fullHeight>
 			<div className={styles['container']}>
 				<Heading
 					className={styles['page-heading']}

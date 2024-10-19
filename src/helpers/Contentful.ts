@@ -2,7 +2,6 @@
 import {
 	type CreateClientParams,
 	createClient as createContentfulClient,
-	type Entry,
 } from 'contentful'
 
 
@@ -10,7 +9,6 @@ import {
 
 
 // Local imports
-import { calculateReadtime } from '@/helpers/calculateReadtime'
 import { type TypeGameSkeleton } from '@/typedefs/contentful/TypeGame'
 import { type TypePageBlogPostSkeleton } from '@/typedefs/contentful'
 
@@ -43,21 +41,6 @@ function getClient(isPreview = false) {
 	}
 
 	return createContentfulClient(clientConfig)
-}
-
-/**
- * Simplifies the structure of an article from Contentful.
- *
- * @param article The original article from Contentful.
- * @returns The simplified article.
- */
-function parseArticle(article: Entry<TypePageBlogPostSkeleton>) {
-	return {
-		...article.fields,
-		id: article.sys.id,
-		createdAt: article.fields.publishedDate,
-		readtime: calculateReadtime(article.fields.content),
-	}
 }
 
 /**
@@ -99,7 +82,7 @@ export async function getArticle(slug: string, isPreview = false) {
 		return null
 	}
 
-	return parseArticle(contentfulResponse.items[0])
+	return contentfulResponse.items[0]
 }
 
 /**
@@ -119,7 +102,7 @@ export async function getArticleByID(id: string, isPreview: boolean) {
 		return null
 	}
 
-	return parseArticle(article)
+	return article
 }
 
 /**

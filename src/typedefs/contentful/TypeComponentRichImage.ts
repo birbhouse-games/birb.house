@@ -11,6 +11,11 @@ export interface TypeComponentRichImageFields {
     caption?: EntryFieldTypes.Symbol;
     link?: EntryFieldTypes.Symbol;
     credits?: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeComponentPhotographerCreditSkeleton | TypeComponentPhotographyPlatformCreditSkeleton>>;
+    shape?: EntryFieldTypes.Text;
+    pullDirection?: EntryFieldTypes.Symbol<"Left" | "None" | "Right">;
+    backgroundPositionX: EntryFieldTypes.Symbol<"Center" | "Left" | "Right">;
+    backgroundPositionY: EntryFieldTypes.Symbol<"Bottom" | "Center" | "Top">;
+    backgroundFit: EntryFieldTypes.Symbol<"Contain" | "Cover">;
 }
 
 export type TypeComponentRichImageSkeleton = EntrySkeletonType<TypeComponentRichImageFields, "componentRichImage">;

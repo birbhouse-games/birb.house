@@ -11,9 +11,9 @@ import NextLink from 'next/link'
 
 
 // Local imports
-import styles from './Link.module.scss'
-
 import { ExternalLink } from '../ExternalLink/ExternalLink'
+
+import styles from './Link.module.scss'
 
 
 
@@ -24,6 +24,7 @@ type Props = PropsWithChildren<{
 	href?: string,
 	isActive?: boolean,
 	onClick?: MouseEventHandler<HTMLAnchorElement>,
+	showActive?: boolean,
 }>
 
 
@@ -37,10 +38,11 @@ export function Link(props: Props) {
 		href,
 		isActive,
 		onClick,
+		showActive = false,
 	} = props
 
 	const compiledClassName = classnames(styles['link'], className, {
-		[styles['is-active']]: isActive,
+		[styles['is-active']]: showActive && isActive,
 	})
 
 	if ((href?.startsWith('/')) || (href?.startsWith('#'))) {

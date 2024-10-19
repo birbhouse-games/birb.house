@@ -11,9 +11,9 @@ import classnames from 'classnames'
 
 
 // Local imports
-import styles from './Button.module.scss'
-
 import { Link } from '@/components/Link/Link'
+
+import styles from './Button.module.scss'
 
 
 
@@ -41,11 +41,11 @@ export function Button(props: Props) {
     children = null,
     className = '',
     hideOverflow = true,
-    href = undefined,
+    href,
     isPrimary = false,
-    onBlur = undefined,
-    onClick = undefined,
-    onFocus = undefined,
+    onBlur,
+    onClick,
+    onFocus,
     type = 'button',
   } = props
 

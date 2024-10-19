@@ -1,3 +1,10 @@
+// Module imports
+import classnames from 'classnames'
+
+
+
+
+
 // Local imports
 import { ContentfulImage } from '@/components/ContentfulImage/ContentfulImage'
 import { ContentfulRichImageCredit } from '@/components/ContentfulRichImageCredit/ContentfulRichImageCredit'
@@ -5,6 +12,9 @@ import { Link } from '@/components/Link/Link'
 import { Entry } from 'contentful'
 import { ImageFocusArea } from '@/typedefs/contentful-extended/ImageFocusArea'
 import { TypeComponentRichImageSkeleton } from '@/typedefs/contentful/TypeComponentRichImage'
+
+import styles from './ContentfulRichImage.module.scss'
+import { CSSProperties } from 'react'
 
 
 
@@ -41,13 +51,13 @@ export function ContentfulRichImage(props: Props) {
 		focusArea,
 		image,
 		link,
+		pullDirection,
+		shape,
 	} = data.fields
 
 	if (!image || !image.fields.file || !image.fields.file.details.image) {
 		return null
 	}
-
-	// const { blurDataURL } = data.metadata
 
 	const alt = data.fields.description ?? image.fields.description
 	const title = data.fields.title ?? image.fields.title
@@ -55,28 +65,41 @@ export function ContentfulRichImage(props: Props) {
 	let result = (
 		<ContentfulImage
 			alt={alt}
-			// blurDataURL={blurDataURL}
 			fill={fill}
 			focusArea={focusArea as ImageFocusArea}
 			height={image.fields.file.details.image.height}
 			isPriority={isPriority}
-			// placeholder={blurDataURL ? 'blur' : undefined}
 			sizes={sizes}
 			src={image.fields.file.url}
 			title={title}
 			width={image.fields.file.details.image.width} />
 	)
 
+	const compiledClassName = classnames(className, {
+		[styles['pull-left']]: pullDirection === 'Left',
+		[styles['pull-right']]: pullDirection === 'Right',
+	})
+
 	if (link) {
 		result = (
-			<Link href={link}>
+			<Link
+				className={compiledClassName}
+				href={link}>
 				{result}
 			</Link>
 		)
 	}
 
+	const compiledStyle: CSSProperties = {}
+
+	if (shape) {
+		compiledStyle.shapeOutside = shape
+	}
+
 	return (
-		<figure className={className}>
+		<figure
+			className={compiledClassName}
+			style={compiledStyle}>
 			{result}
 
 			{Boolean(showCredits && (caption ?? credits)) && (

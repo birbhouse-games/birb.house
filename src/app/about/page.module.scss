@@ -1,5 +1,4 @@
 .section {
-	color: var(--palette-black);
 	min-height: 100vh;
 	// max-height: 50%;
 	// overflow: hidden;
@@ -14,22 +13,21 @@
 		}
 	}
 
+	.content {
+		margin-top: 5rem;
+	}
+
 	.float-image {
 		position: relative;
 		float: right;
 		pointer-events: none;
 		shape-margin: 2rem;
 		width: 50%;
-		z-index: -1;
 
 		img {
 			object-fit: contain;
 			object-position: bottom;
 		}
-	}
-
-	&:nth-child(1) {
-
 	}
 
 	&:nth-child(1) .float-image {
@@ -58,7 +56,9 @@
 		);
 	}
 
-	.content {
-		margin-top: 5rem;
+	.page-heading {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: var(--max-content-width);
 	}
 }

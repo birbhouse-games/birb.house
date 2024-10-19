@@ -1,14 +1,14 @@
 .container {
+	color: var(--palette-yellow);
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 2rem;
 	max-width: var(--max-width);
 	position: relative;
 
 	.call-to-action > span {
 		align-items: center;
 		display: flex;
-		font-size: 2rem;
 		gap: 2rem;
 	}
 
@@ -26,12 +26,7 @@
 		text-shadow: 0 0 10px black;
 	}
 
-	h2 {
-		font-size: 4em;
-	}
-
 	p {
-		font-size: 1.5em;
 		line-height: 1.5;
 	}
 }

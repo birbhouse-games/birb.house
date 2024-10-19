@@ -8,6 +8,7 @@ import {
 	faItchIo,
 	faSteam,
 } from '@fortawesome/free-brands-svg-icons'
+import { Document } from '@contentful/rich-text-types'
 import { faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useMemo } from 'react'
@@ -18,8 +19,6 @@ import { type VideoGame } from 'schema-dts'
 
 
 // Local imports
-import styles from './GameCard.module.scss'
-
 import { Content } from '@/components/Content/Content'
 import { ContentfulImage } from '@/components/ContentfulImage/ContentfulImage'
 import { faEpicGames } from '@/icons/faEpicGames'
@@ -28,11 +27,12 @@ import { faHumbleBundle } from '@/icons/faHumbleBundle'
 import { Heading } from '@/components/Heading/Heading'
 import { Hero } from '@/components/Hero/Hero'
 import { Link } from '@/components/Link/Link'
-import { parseContentfulNodeFragment } from '@/helpers/parseContentfulNodeFragment'
-import { parseContentfulNodeFragmentAsString } from '@/helpers/parseContentfulNodeFragmentAsString'
+import { parseContentfulRichText } from '@/helpers/parseContentfulRichText'
 // import { ScreenReaderText } from '@/components/ScreenReaderText/ScreenReaderText'
 import { type TypeGameSkeleton } from '@/typedefs/contentful/TypeGame'
 import { useJSONLD } from '@/hooks/useJSONLD'
+
+import styles from './GameCard.module.scss'
 
 
 
@@ -64,7 +64,8 @@ export function GameCard(props: Props) {
 				'@type': 'Country',
 				name: 'USA'
 			},
-			description: parseContentfulNodeFragmentAsString(game.fields.description),
+			// @ts-ignore
+			description: parseContentfulRichText(game.fields.description as Document, true),
 			name: game.fields.name as string,
 			producer: { '@id': 'https://birb.house#corporation' },
 			publisher: { '@id': 'https://birb.house#corporation' },
@@ -153,7 +154,8 @@ export function GameCard(props: Props) {
 
 	const content = useMemo(() => (
 		<div className={styles['content']}>
-			{parseContentfulNodeFragment(game.fields.description)}
+			{/* @ts-ignore */}
+			{parseContentfulRichText(game.fields.description)}
 		</div>
 	), [game])
 
@@ -168,6 +170,7 @@ export function GameCard(props: Props) {
 			backgroundColor={game.fields.backgroundColor as string}
 			className={styles['game-card']}
 			contentClassName={styles['content-wrapper']}
+			contentPositionX={'left'}
 			style={compiledStyles}>
 			<Heading level={3}>
 				{logo}

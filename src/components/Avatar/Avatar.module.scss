@@ -1,0 +1,8 @@
+.container {
+	--calculated-size: calc(var(--avatar-size) * 1px);
+
+	border-radius: 50%;
+	height: var(--calculated-size);
+	overflow: hidden;
+	width: var(--calculated-size);
+}

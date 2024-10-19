@@ -48,17 +48,15 @@ html {
 }
 
 html {
-	background-color: var(--palette-background-color);
-	color: var(--palette-foreground-color);
-	color-scheme: dark;
+	color-scheme: light;
 	font-size: 10px;
 	scroll-behavior: smooth;
 }
 
 body {
-	color: var(--palette-yellow);
+	color: var(--palette-foreground-color);
 	font-family: 'hoss-round', sans-serif;
-	font-weight: 400;
-	font-size: 1.4rem;
+	font-size: 2rem;
 	font-style: normal;
+	font-weight: 400;
 }

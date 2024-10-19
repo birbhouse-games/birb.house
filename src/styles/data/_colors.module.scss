@@ -1,25 +1,38 @@
 @use 'sass:list';
 
+$black: #443356;
+$blue: #4da7d7;
+$blueDark: #3b59a4;
+$orangeVibrant: #f5511e;
+$orange: #f7774f;
+$orangeDark: #c9454c;
+$orangeDarkest: #aa3138;
+$white: white;
+$yellow: #fef2b1;
+$yellowDark: #fedb8b;
+$yellowDarkest: #e7ad79;
+$pureBlack: #000000;
+
 $colors: (
-	"black": #443356,
-	"blue": #4da7d7,
-	"blue-dark": #3b59a4,
-	"orange-vibrant": #f5511e,
-	"orange": #f7774f,
-	"orange-dark": #c9454c,
-	"orange-darkest": #aa3138,
-	"white": #ffffff,
-	"yellow": #fef2b1,
-	"yellow-dark": #fedb8b,
-	"yellow-darkest": #e7ad79,
+	"black": $black,
+	"blue": $blue,
+	"blue-dark": $blueDark,
+	"orange-vibrant": $orangeVibrant,
+	"orange": $orange,
+	"orange-dark": $orangeDark,
+	"orange-darkest": $orangeDarkest,
+	"white": $white,
+	"yellow": $yellow,
+	"yellow-dark": $yellowDark,
+	"yellow-darkest": $yellowDarkest,
 
-	"pure-black": #000000,
+	"pure-black": $pureBlack,
 
-	// "background-color": #000000,
-	// "foreground-color": #a4a5a7,
-	"link-color": #ffffff,
-	"link-active-color": #fedb8b,
-	"text-color": #fef2b1,
+	"background-color": #f2d192,
+	"foreground-color": $black,
+	"link-color": $blueDark,
+	"link-active-color": $blue,
+	"text-color": $yellow,
 );
 $names: ();
 $values: ();

@@ -1,5 +1,4 @@
 // Local imports
-// @ts-ignore
 import styles from '@/styles/data/_colors.module.scss'
 
 

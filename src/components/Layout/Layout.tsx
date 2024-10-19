@@ -10,9 +10,9 @@ import { type PropsWithChildren } from 'react'
 
 
 // Local imports
-import styles from './Layout.module.scss'
-
 import { Banner } from '@/components/Banner/Banner'
+
+import styles from './Layout.module.scss'
 
 
 

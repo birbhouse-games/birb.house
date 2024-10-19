@@ -19,9 +19,9 @@ import Image from 'next/image.js'
 
 
 // Local imports
-import styles from './Banner.module.scss'
-
 import { Link } from '@/components/Link/Link'
+
+import styles from './Banner.module.scss'
 
 
 

@@ -9,7 +9,7 @@
 	);
 	display: flex;
 	flex-direction: column;
-	font-size: 1.6rem;
+	font-size: 3.2rem;
 	grid-area: banner;
 	height: 100vh;
 	width: var(--container-size);
@@ -32,8 +32,10 @@
 		gap: 2rem;
 		padding: 0.75rem 2rem;
 
+		&:focus,
 		&:hover {
 			background-color: rgba(white, 0.1);
+			color: var(--palette-yellow-dark);
 		}
 	}
 
@@ -42,7 +44,6 @@
 		display: flex;
 		flex-direction: column;
 		font-family: var(--font-heyam-pro);
-		font-size: 2em;
 		letter-spacing: 1px;
 		line-height: 1;
 	}
@@ -50,7 +51,7 @@
 	.footer {
 		display: flex;
 		flex-direction: column;
-		font-size: 0.8em;
+		font-size: 1.3rem;
 		margin-top: auto;
 		row-gap: 2rem;
 

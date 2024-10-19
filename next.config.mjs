@@ -1,5 +1,12 @@
+// Module imports
+import withPlaiceHolder from '@plaiceholder/next'
+
+
+
+
+
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
 	i18n: {
 		locales: ['en-US'],
 		defaultLocale: 'en-US',
@@ -68,3 +75,5 @@ module.exports = {
 		]
 	},
 }
+
+export default withPlaiceHolder(nextConfig)

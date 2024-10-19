@@ -5,8 +5,7 @@
 	align-items: var(--content-align-items);
 	display: flex;
 	justify-content: var(--content-justify-content);
-	min-height: 100vh;
-	padding: 6rem;
+	padding: 10rem 6rem;
 	position: relative;
   width: 100%;
 
@@ -24,6 +23,10 @@
 
 	&.content-position-y-top {
 		--content-align-items: flex-start;
+	}
+
+	&.full-height {
+		min-height: 100vh;
 	}
 }
 
@@ -82,5 +85,6 @@
 }
 
 .hero-content {
-	max-width: var(--max-width);
+	width: var(--max-content-width);
+	z-index: 1;
 }

@@ -1,0 +1,21 @@
+.list {
+	list-style-type: none;
+
+	&.is-bulleted,
+	&.is-numbered {
+		padding-left: 30px;
+	}
+
+	&.is-bulleted {
+		list-style-type: disc;
+	}
+
+	&.is-numbered {
+		list-style-type: decimal;
+	}
+
+	&.is-inline {
+		display: flex;
+		gap: 1rem;
+	}
+}

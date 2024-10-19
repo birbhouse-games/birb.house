@@ -11,6 +11,9 @@ import classnames from 'classnames'
 
 
 // Local imports
+import { type Positions } from '@/typedefs/Positions'
+import { type Fits } from '@/typedefs/Fits'
+
 import styles from './Hero.module.scss'
 
 
@@ -20,16 +23,17 @@ import styles from './Hero.module.scss'
 // Types
 type Props = {
 	background?: ReactNode,
-	backgroundPositionX?: 'left' | 'right' | 'center',
-	backgroundPositionY?: 'top' | 'bottom' | 'center',
+	backgroundPositionX?: Positions['X'],
+	backgroundPositionY?: Positions['Y'],
 	backgroundClassName?: string,
 	backgroundColor?: string,
-	backgroundFit?: 'cover' | 'contain',
+	backgroundFit?: Fits,
 	children?: ReactNode,
 	className?: string,
 	contentClassName?: string,
-	contentPositionX?: 'left' | 'right' | 'center',
-	contentPositionY?: 'top' | 'bottom' | 'center',
+	contentPositionX?: Positions['X'],
+	contentPositionY?: Positions['Y'],
+	fullHeight?: boolean,
 	style?: CSSProperties,
 }
 
@@ -55,6 +59,7 @@ export function Hero(props: Props) {
 		contentClassName = '',
 		contentPositionX = 'center',
 		contentPositionY = 'center',
+		fullHeight,
 		style = {},
 	} = props
 
@@ -64,6 +69,7 @@ export function Hero(props: Props) {
 			styles[`content-position-x-${contentPositionX}`],
 			styles[`content-position-y-${contentPositionY}`],
 			className,
+			{ [styles['full-height']]: fullHeight },
 		)
 	}, [
 		className,

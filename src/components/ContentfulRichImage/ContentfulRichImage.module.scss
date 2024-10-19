@@ -1,0 +1,28 @@
+.pull-left,
+.pull-right {
+	--pull-size: 40rem;
+
+	display: flex;
+	height: var(--pull-size);
+	margin: 2rem;
+	position: relative;
+	width: var(--pull-size);
+
+	img {
+		object-fit: contain;
+	}
+
+	@media (max-width: 1000px) {
+		--pull-size: 20rem;
+	}
+}
+
+.pull-left {
+	margin-left: calc((var(--pull-size) / 2) * -1);
+	float: left;
+}
+
+.pull-right {
+	margin-right: calc((var(--pull-size) / 2) * -1);
+	float: right;
+}

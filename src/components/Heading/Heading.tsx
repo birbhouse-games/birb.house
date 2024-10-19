@@ -1,7 +1,9 @@
 // Module import
+import {
+	type PropsWithChildren,
+	useMemo,
+} from 'react'
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
-import { useMemo } from 'react'
 
 
 
@@ -14,12 +16,22 @@ import styles from './Heading.module.scss'
 
 
 
+// Types
+type Props = PropsWithChildren<{
+	className?: string,
+	level?: 1 | 2 | 3 | 4 | 5 | 6,
+}>
+
+
+
+
+
 /**
  * Renders a heading (h1-h6).
  *
  * @component
  */
-export function Heading(props) {
+export function Heading(props: Props) {
 	const {
 		children,
 		className = '',
@@ -80,10 +92,4 @@ export function Heading(props) {
 			{children}
 		</h6>
 	)
-}
-
-Heading.propTypes = {
-	children: PropTypes.node,
-	className: PropTypes.string,
-	level: PropTypes.number,
 }

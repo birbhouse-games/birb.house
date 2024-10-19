@@ -1,7 +1,16 @@
 .container {
-	aspect-ratio: var(--aspect-ratio);
+	aspect-ratio: var(--image-width) / var(--image-height);
 	display: flex;
 	height: 100%;
+	object-fit: inherit;
+	object-position: inherit;
 	position: relative;
 	width: 100%;
+
+	img {
+		height: 100%;
+		object-fit: var(--object-fit, inherit);
+		object-position: var(--object-position, inherit);
+		width: 100%;
+	}
 }
