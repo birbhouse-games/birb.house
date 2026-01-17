@@ -18,21 +18,21 @@
 		// }
 	}
 
-	// &.level-4 {
-	// 	font-size: 26px;
+	&.level-4 {
+		font-size: 4rem;
 
-	// 	@media (max-width: 900px) {
-	// 		font-size: 20px;
-	// 		font-weight: 600;
-	// 	}
-	// }
+		// @media (max-width: 900px) {
+		// 	font-size: 20px;
+		// 	font-weight: 600;
+		// }
+	}
 
-	// &.level-5 {
-	// 	font-size: 24px;
-	// 	font-weight: 600;
+	&.level-5 {
+		font-size: 3rem;
+		font-weight: 600;
 
-	// 	@media (max-width: 900px) {
-	// 		font-size: 18px;
-	// 	}
-	// }
+		// @media (max-width: 900px) {
+		// 	font-size: 18px;
+		// }
+	}
 }

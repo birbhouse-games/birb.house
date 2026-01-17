@@ -4,6 +4,13 @@
 	margin-right: auto;
 	max-width: var(--max-content-width);
 
+	blockquote {
+		border-left-color: var(--palette-orange-vibrant);
+		border-left-style: solid;
+		border-left-width: 0.2rem;
+		padding-left: 2rem;
+	}
+
 	p {
 		margin-bottom: 2rem;
 	}
