@@ -19,4 +19,15 @@
 		grid-area: content;
 		overflow: auto;
 	}
+
+	@media (max-width: 1000px) {
+		display: flex;
+		flex-direction: column;
+
+		.content {
+			background-size: cover;
+			flex-grow: 1;
+			overflow: auto;
+		}
+	}
 }

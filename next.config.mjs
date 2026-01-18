@@ -1,10 +1,6 @@
 // Module imports
 import withPlaiceHolder from '@plaiceholder/next'
 
-
-
-
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	i18n: {
