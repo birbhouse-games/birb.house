@@ -1,9 +1,6 @@
-'use client'
-
 // Module imports
 import { Entry } from 'contentful'
 import { type Metadata } from 'next'
-import { useRouter } from 'next/navigation'
 
 // Local imports
 import { Button } from '@/components/Button/Button'
@@ -22,8 +19,6 @@ type Props = {
 export async function ArticleSummary(props: Props) {
 	const { article } = props
 
-	const router = useRouter()
-
 	const background = !article.fields.featuredImage ? null : (
 		<ContentfulRichImage
 			data={article.fields.featuredImage}
@@ -31,10 +26,6 @@ export async function ArticleSummary(props: Props) {
 			sizes={'70vw'}
 		/>
 	)
-
-	const handleReadMoreClick = () => {
-		router.push(`/blog/${article.fields.slug}`)
-	}
 
 	return (
 		<Link
@@ -56,8 +47,7 @@ export async function ArticleSummary(props: Props) {
 
 					<Button
 						className={styles['read-more-button']}
-						fullWidth
-						onClick={handleReadMoreClick}>
+						fullWidth>
 						{'Read More'}
 					</Button>
 				</div>
