@@ -6,13 +6,13 @@
 	margin-right: auto;
 	max-width: calc(var(--max-width) * 2);
 
-	@container main-content (min-width: 1300px) {
-		grid-template-columns: repeat(2, 1fr);
+	// @container main-content (min-width: 1300px) {
+	// 	// grid-template-columns: repeat(2, 1fr);
 
-		> :first-child {
-			grid-column: span 2;
-		}
-	}
+	// 	// > :first-child {
+	// 	// 	grid-column: span 2;
+	// 	// }
+	// }
 }
 
 .page-content {

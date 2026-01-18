@@ -28,6 +28,10 @@
 	&.full-height {
 		min-height: 100vh;
 	}
+
+	@media (max-width: 1000px) {
+	padding: 5rem 3rem;
+	}
 }
 
 .background {

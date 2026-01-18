@@ -1,23 +1,86 @@
 .container {
+	border-color: var(--palette-yellow);
 	border-radius: 5rem;
+	border-style: solid;
+	border-width: 0.4rem;
+	box-shadow: 
+		0 0 0 0 rgba(black, 0.4),
+		0 0 grey;
 	cursor: pointer;
 	display: block;
 	overflow: hidden;
+	transform: translate(0, 0);
+	transition-duration: 0.2s;
+	transition-property: 
+		border-color,
+		box-shadow,
+		transform;
 	width: 100%;
 
+	&:hover {
+		border-color: var(--palette-orange-vibrant);
+		box-shadow: 
+			-1rem 1rem 1rem 0.5rem rgba(black, 0.4),
+			-2rem 2rem grey;
+		transform: translate(2rem, -2rem);
+	}
+
 	article {
+		--background-color: var(--palette-blue);
+
+		background-color: var(--background-color);
+		color: var(--palette-foreground-color);
+		padding-bottom: 10rem;
+		padding-left: 50%;
+		padding-right: 10rem;
+		padding-top: 10rem;
 		width: 100%;
-	}
 
-	.article {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		width: auto;
-	}
+		.content {
+			background-color: white;
+			border-radius: 5rem;
+			padding: 5rem;
+			position: relative;
+			z-index: 1;
 
-	.article-container {
-		padding-top: 20rem;
+			.read-more-button {
+				margin-top: 2rem;
+			}
+		}
+
+		.heading {
+			grid-area: title;
+		}
+
+		.header-image {
+			inset: 0;
+			position: absolute;
+			width: 70%;
+
+			&:after {
+				background-image: linear-gradient(
+					to right,
+					transparent,
+					var(--background-color)
+				);
+				background-position: right;
+				background-repeat: no-repeat;
+				background-size: 20%;
+				content: '';
+				display: block;
+				inset: 0;
+				position: absolute;
+			}
+
+			figure {
+				inset: 0;
+				position: absolute;
+			}
+		}
+
+		.summary {
+			grid-area: summary;
+		}
 	}
 
 	.heading,
@@ -25,8 +88,6 @@
 		max-width: var(--max-width);
 
 		> span {
-			background-color: hsla(var(--palette-pure-black-hsl), 0.8);
-			color: white;
 			display: inline;
 			line-height: 1.3;
 		}
@@ -34,5 +95,32 @@
 
 	p {
 		line-height: 1.4;
+	}
+
+	@media (max-width: 1000px) {
+		border-radius: 2rem;
+
+		article	{
+			padding: 0;
+
+			.content {
+				border-radius: 0;
+				padding: 2rem;
+			}
+
+			.header-image {
+				height: 20rem;
+				position: relative;
+				width: 100%;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+		.heading {
+			margin-bottom: 1rem;
+		}
 	}
 }

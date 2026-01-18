@@ -1,10 +1,6 @@
 // Module imports
 import classnames from 'classnames'
 
-
-
-
-
 // Local imports
 import { ContentfulImage } from '@/components/ContentfulImage/ContentfulImage'
 import { ContentfulRichImageCredit } from '@/components/ContentfulRichImageCredit/ContentfulRichImageCredit'
@@ -16,23 +12,15 @@ import { TypeComponentRichImageSkeleton } from '@/typedefs/contentful/TypeCompon
 import styles from './ContentfulRichImage.module.scss'
 import { CSSProperties } from 'react'
 
-
-
-
-
 // Types
 type Props = {
-	className?: string,
-	data: Entry<TypeComponentRichImageSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS'>,
-	fill?: boolean,
-	isPriority?: boolean,
-	showCredits?: boolean,
-	sizes?: string,
+	className?: string
+	data: Entry<TypeComponentRichImageSkeleton, 'WITHOUT_UNRESOLVABLE_LINKS'>
+	fill?: boolean
+	isPriority?: boolean
+	showCredits?: boolean
+	sizes?: string
 }
-
-
-
-
 
 /** Renders an image from Contentful with rich data. */
 export function ContentfulRichImage(props: Props) {
@@ -45,15 +33,8 @@ export function ContentfulRichImage(props: Props) {
 		sizes,
 	} = props
 
-	const {
-		caption,
-		credits,
-		focusArea,
-		image,
-		link,
-		pullDirection,
-		shape,
-	} = data.fields
+	const { caption, credits, focusArea, image, link, pullDirection, shape } =
+		data.fields
 
 	if (!image || !image.fields.file || !image.fields.file.details.image) {
 		return null
@@ -72,7 +53,8 @@ export function ContentfulRichImage(props: Props) {
 			sizes={sizes}
 			src={image.fields.file.url}
 			title={title}
-			width={image.fields.file.details.image.width} />
+			width={image.fields.file.details.image.width}
+		/>
 	)
 
 	const compiledClassName = classnames(className, {

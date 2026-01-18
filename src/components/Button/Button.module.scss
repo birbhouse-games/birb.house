@@ -27,4 +27,9 @@
 			white-space: nowrap;
 		}
 	}
+
+	&.is-full-width {
+		justify-content: center;
+		width: 100%;
+	}
 }
